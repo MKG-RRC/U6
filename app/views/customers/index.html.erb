@@ -1,7 +1,13 @@
 <section class="section">
-  <div class="container">
-    <h1 class="title">All Customers</h1>
-    <div class="columns is-multiline">
+  <div class="container has-text-centered">
+    <h1 class="title is-3 mb-5">All Customers</h1>
+
+    <div class="buttons is-centered">
+      <%= link_to "Alphabetized", customers_alphabetized_path, class: "button is-link" %>
+      <%= link_to "Missing Emails", customers_missing_email_path, class: "button is-warning" %>
+    </div>
+
+    <div class="columns is-multiline is-centered">
       <%= render @customers %>
     </div>
   </div>

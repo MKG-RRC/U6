@@ -1,22 +1,18 @@
 <div class="column is-one-quarter">
-  <div class="card">
-    <div class="card-image has-text-centered p-3">
+  <div class="customer-card">
+    <div class="customer-image">
       <% if customer.image.attached? %>
-        <figure class="image is-128x128 is-inline-block">
-          <%= image_tag customer.image.variant(resize_to_limit: [200, 200]) %>
-        </figure>
+        <%= image_tag customer.image, alt: customer.full_name %>
       <% else %>
-        <figure class="image is-128x128 is-inline-block">
-          <img src="https://via.placeholder.com/200x200?text=No+Image" alt="No image">
-        </figure>
+        <p><em>No image available</em></p>
       <% end %>
     </div>
 
-    <div class="card-content has-text-centered">
-      <p class="title is-5"><%= customer.full_name %></p>
+    <div class="customer-info">
+      <h2><%= customer.full_name %></h2>
       <p><strong>Province:</strong> <%= customer.notes.presence || "Unknown" %></p>
       <p><%= customer.phone_number %></p>
-      <p><%= customer.email_address.presence || "N/A" %></p>
+      <p><%= customer.email_address.presence || "No email" %></p>
     </div>
   </div>
 </div>
