@@ -1,0 +1,18 @@
+<div class="customer-card">
+  <% if customer.image.attached? %>
+    <div class="customer-image">
+      <%= image_tag customer.image.variant(resize_to_limit: [150, 150]) %>
+    </div>
+  <% else %>
+    <div class="customer-image-placeholder">
+      <p>No Image</p>
+    </div>
+  <% end %>
+
+  <div class="customer-info">
+    <h2><%= customer.full_name %></h2>
+    <p><strong>Phone:</strong> <%= customer.phone_number %></p>
+    <p><strong>Email:</strong> <%= customer.email_address.presence || "N/A" %></p>
+    <p><strong>Notes:</strong> <%= simple_format(customer.notes) %></p>
+  </div>
+</div>
